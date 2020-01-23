@@ -110,5 +110,30 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Remove_OnlyRemoveTheFirstInstanceOfAValue_SecondInstanceOfValueStaysAndShiftedDowntoIndex2()
+        {
+            //Arrange
+            MyList<string> myList = new MyList<string>();
+            string value = "word";
+            string value0 = "brick";
+            string value1 = "rocks";
+            string value2 = "snow";
+            string expected = value;
+            string actual;
+
+            //Act
+            myList.Add(value0);
+            myList.Add(value);
+            myList.Add(value1);
+            myList.Add(value);
+            myList.Add(value2);
+            myList.Remove(value);
+            actual = myList[2];
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
