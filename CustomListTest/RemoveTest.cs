@@ -134,5 +134,30 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Remove_OnlyRemoveTheFirstInstanceOfAValue_CountDecreasesByOneTo4()
+        {
+            //Arrange
+            MyList<string> myList = new MyList<string>();
+            string value = "word";
+            string value0 = "brick";
+            string value1 = "rocks";
+            string value2 = "snow";
+            int expected = 4;
+            int actual;
+
+            //Act
+            myList.Add(value0);
+            myList.Add(value);
+            myList.Add(value1);
+            myList.Add(value);
+            myList.Add(value2);
+            myList.Remove(value);
+            actual = myList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
