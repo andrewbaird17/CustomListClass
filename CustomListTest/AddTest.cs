@@ -133,5 +133,21 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Add_AddAValue_Capacityis4()
+        {
+            //Arrange 
+            MyList<string> myList = new MyList<string>();
+            string value = "Word";
+            int actual;
+            int expected = 4;
+
+            //Act 
+            myList.Add(value);
+            actual = myList.Capacity;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
