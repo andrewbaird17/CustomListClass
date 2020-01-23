@@ -27,7 +27,26 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Remove_FirstItemOutOfTwo_SecondItemMovesToIndex0()
+        public void Remove_RemoveValue0_CountStays1()
+        {
+            //Arrange
+            MyList<int> myList = new MyList<int>();
+            int value = 5;
+            int valueRemove = 0;
+            int actual;
+            int expected = 1;
+
+            //Act
+            myList.Add(value);
+            myList.Remove(valueRemove);
+            actual = myList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Remove_TakeFirstItemOutOfTwo_SecondItemMovesToIndex0()
         {
             //Arrange
             MyList<int> myList = new MyList<int>();
@@ -46,29 +65,50 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Remove_LastValue()
+        public void Remove_RemoveThirdValueOutOf4_SecondValueStaysAtIndex1()
         {
             //Arrange
-
+            MyList<int> myList = new MyList<int>();
+            int value1 = 5;
+            int value2 = 10;
+            int value3 = 15;
+            int value4 = 20;
+            int actual;
+            int expected = value2;
 
             //Act
-
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            myList.Add(value4);
+            myList.Remove(value3);
+            actual = myList[1];
 
             //Assert
-
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void Remove_RemoveValueNotInList_CountStaysTheSame()
+        public void Remove_RemoveValueNotInList_CountStaysThree()
         {
             //Arrange
-
+            MyList<int> myList = new MyList<int>();
+            int value1 = 5;
+            int value2 = 10;
+            int value3 = 15;
+            int valueRemove = 20;
+            int actual;
+            int expected = 3;
 
             //Act
-
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            myList.Remove(valueRemove);
+            actual = myList.Count;
 
             //Assert
-            
+            Assert.AreEqual(expected, actual);
         }
     }
 }
