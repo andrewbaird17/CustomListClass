@@ -8,18 +8,17 @@ namespace CustomListTest
     public class RemoveTest
     {
         [TestMethod]
-        public void Remove_RemoveOnlyItemValue0_CapacityStays4()
+        public void Remove_RemoveOnlyItem_CapacityStays4()
         {
             //Arrange
             MyList<int> myList = new MyList<int>();
             int value = 5;
-            int valueRemove = 0;
             int actual;
             int expected = 4;
 
             //Act
             myList.Add(value);
-            myList.Remove(valueRemove);
+            myList.Remove(value);
             actual = myList.Capacity;
 
             //Assert
