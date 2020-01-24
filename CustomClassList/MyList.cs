@@ -12,15 +12,29 @@ namespace CustomClassList
         T[] items;
         T[] tempitems;
         public T item;
-        public int Count;
-        public int Capacity;
+        private int count;
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+        private int capacity;
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+        }
         public int nextIndex;
 
         //Constructor
         public MyList()
         {
-            items = new T[Capacity];
-            Count = 0;
+            items = new T[capacity];
+            count = 0;
         }
 
         //Member Methods (CAN DO)
@@ -29,6 +43,11 @@ namespace CustomClassList
             CapacityCheck();
             IncreaseCount();
             ItemAddedToNextIndexSpot(input);
+
+        }
+
+        public void Remove(T input)
+        {
 
         }
         public T this[int index]
@@ -45,7 +64,7 @@ namespace CustomClassList
 
         public void CapacityCheck()
         {
-            if (Count == Capacity)
+            if (count == capacity)
             {
                 IncreaseCapacity();
                 T[] tempitems = MakeTempArray();
@@ -54,8 +73,8 @@ namespace CustomClassList
         }
         public T[] MakeTempArray()
         {
-            tempitems = new T[Capacity];
-            for (int i = 0; i < Capacity; i++)
+            tempitems = new T[capacity];
+            for (int i = 0; i < capacity; i++)
             {
                 tempitems[i] = item;
             }
@@ -63,7 +82,7 @@ namespace CustomClassList
         }
         public void CombineTempAndOldArray()
         {
-            for (int i = 0; i < Count; i++)
+            for (int i = 0; i < count; i++)
             {
                 tempitems[i] = items[i];
             }
@@ -71,16 +90,16 @@ namespace CustomClassList
         }
         public void IncreaseCapacity()
         {
-            if (Capacity == 0)
+            if (capacity == 0)
             {
                 MakeInitialArray();
                 int newCapacity = 4;
-                Capacity = newCapacity;
+                capacity = newCapacity;
             }
             else
             {
-                int newCapacity = Capacity * 2;
-                Capacity = newCapacity;
+                int newCapacity = capacity * 2;
+                capacity = newCapacity;
             }
         }
         public void ItemAddedToNextIndexSpot(T input)
@@ -90,17 +109,17 @@ namespace CustomClassList
         }
         public void MakeInitialArray()
         {
-            Capacity = 1;
-            items = new T[Capacity];
+            capacity = 1;
+            items = new T[capacity];
             items[nextIndex] = item;
         }
         public void IncreaseCount()
         {
-            Count += 1;
+            count += 1;
         }
         public void DecreaseCount()
         {
-            Count -= 1;
+            count -= 1;
         }
     }
 }
