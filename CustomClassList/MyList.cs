@@ -10,8 +10,8 @@ namespace CustomClassList
     {
         //Member Variables (HAS A)
         T[] items;
-        int Count;
-        int Capacity;
+        public int Count;
+        public int Capacity;
 
         //Constructor
         public MyList()
@@ -37,14 +37,6 @@ namespace CustomClassList
                 items[index] = value;
             }
         }
-        public void IncreaseCount()
-        {
-            Count += 1;
-        }
-        public void DecreaseCount()
-        {
-            Count -= 1;
-        }
         public void CapacityCheck()
         {
             if (Count > Capacity)
@@ -68,6 +60,13 @@ namespace CustomClassList
          
             }
         }
-
+        public void IncreaseCount()
+        {
+            Count += 1;
+        }
+        public void DecreaseCount()
+        {
+            Count -= 1;
+        }
     }
 }
