@@ -95,7 +95,8 @@ namespace CustomListTest
         {
             //Arrange
             MyList<string> myList = new MyList<string>();
-            string value0 = "word";           
+            string value0 = "word";
+            string actual;
 
             //Act
             myList.Add(value0);
