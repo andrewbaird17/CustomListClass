@@ -63,10 +63,11 @@ namespace CustomClassList
         }
         public void CombineTempAndOldArray()
         {
-            for (int i = 0; i < Capacity; i++)
+            for (int i = 0; i < Count; i++)
             {
                 tempitems[i] = items[i];
             }
+            items = tempitems;
         }
         public void IncreaseCapacity()
         {
