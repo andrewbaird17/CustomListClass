@@ -24,22 +24,22 @@ namespace CustomClassList
         }
 
         //Member Methods (CAN DO)
-        public void Add(T item)
+        public void Add(T input)
         {
             IncreaseCount();
             CapacityCheck();
-
+            ItemAddedToNextIndexSpot(input);
 
         }
         public T this[int index]
         {
             get
             {
-                return this[index];
+                return items[index];
             }
             set
             {
-                this[index] = value;
+                items[index] = value;
             }
         }
 
@@ -82,6 +82,11 @@ namespace CustomClassList
                 int newCapacity = Capacity * 2;
                 Capacity = newCapacity;
             }
+        }
+        public void ItemAddedToNextIndexSpot(T input)
+        {
+            items[nextIndex] = input;
+            nextIndex += 1;
         }
         public void MakeInitialArray()
         {
