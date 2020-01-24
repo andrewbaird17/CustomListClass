@@ -26,8 +26,8 @@ namespace CustomClassList
         //Member Methods (CAN DO)
         public void Add(T input)
         {
-            IncreaseCount();
             CapacityCheck();
+            IncreaseCount();
             ItemAddedToNextIndexSpot(input);
 
         }
@@ -45,7 +45,7 @@ namespace CustomClassList
 
         public void CapacityCheck()
         {
-            if (Count > Capacity)
+            if (Count == Capacity)
             {
                 IncreaseCapacity();
                 T[] tempitems = MakeTempArray();
