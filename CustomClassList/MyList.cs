@@ -17,7 +17,7 @@ namespace CustomClassList
         {
             get
             {
-                return count;
+                 return count;
             }
         }
         private int capacity;
@@ -37,17 +37,12 @@ namespace CustomClassList
             count = 0;
         }
 
-        //Member Methods (CAN DO)
+        //Member Add Methods (CAN DO)
         public void Add(T input)
         {
             CapacityCheck();
             IncreaseCount();
             ItemAddedToNextIndexSpot(input);
-
-        }
-
-        public void Remove(T input)
-        {
 
         }
         public T this[int index]
@@ -60,25 +55,33 @@ namespace CustomClassList
             {
                 items[index] = value;
             }
+            //Throw the IndexOutofRange Error
         }
 
+        public void ValueNotInArrayCountStaysSame()
+        {
+
+        }
+        public void TakeItemOutAtCertainIndex()
+        {
+
+        }
         public void CapacityCheck()
         {
             if (count == capacity)
             {
                 IncreaseCapacity();
-                T[] tempitems = MakeTempArray();
+                MakeTempArray();
                 CombineTempAndOldArray();
             }
         }
-        public T[] MakeTempArray()
+        public void MakeTempArray()
         {
             tempitems = new T[capacity];
             for (int i = 0; i < capacity; i++)
             {
                 tempitems[i] = item;
             }
-            return tempitems;
         }
         public void CombineTempAndOldArray()
         {
@@ -121,5 +124,13 @@ namespace CustomClassList
         {
             count -= 1;
         }
-    }
+
+        ////Member Remove Methods (CAN DO)
+        /// public void Remove(T input)
+        //{
+             //Actually Remove an item from array
+             //Don't decrease count if value not in array
+            
+        //}
+}
 }

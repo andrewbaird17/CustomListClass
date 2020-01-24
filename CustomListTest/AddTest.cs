@@ -77,19 +77,6 @@ namespace CustomListTest
             Assert.AreEqual(value2, actual);
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentOutOfRangeException))]
-        //public void Add_CheckIfListIsOutOfIndex_DisplayOutOfIndex()
-        //{
-        //    // Arrange
-        //    MyList<int> myList = new MyList<int>();
-        //    int initial = 2;
-            
-        //    //Act
-        //    myList.Add();
-
-        //}
-
         [TestMethod]
         public void Add_SameValueAddedMultipleTimes_ValueWasAddedAtLastIndex()
         {

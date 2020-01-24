@@ -159,5 +159,17 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Remove_CheckIfListIsOutOfIndex_DisplayOutOfIndex()
+        {
+            // Arrange
+            MyList<int> myList = new MyList<int>();
+            int initial = 2;
+
+            //Act
+            myList.Remove(initial);
+
+        }
     }
 }
