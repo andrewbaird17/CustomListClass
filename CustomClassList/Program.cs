@@ -10,8 +10,7 @@ namespace CustomClassList
     {
         static void Main(string[] args)
         {
-            MyList<int> myList = new MyList<int>();
-            
+            MyList<int> myList = new MyList<int>() { 1,2,3,4,5};
 
         }
 

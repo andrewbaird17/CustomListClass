@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomClassList
 {
-    public class MyList<T>
+    public class MyList<T> : IEnumerable
     {
         //Member Variables (HAS A)
         T[] items;
@@ -37,14 +38,7 @@ namespace CustomClassList
             count = 0;
         }
 
-        //Member Add Methods (CAN DO)
-        public void Add(T input)
-        {
-            CapacityCheck();
-            IncreaseCount();
-            ItemAddedToNextIndexSpot(input);
-
-        }
+        // Overall Member Methods
         public T this[int index]
         {
             get
@@ -62,6 +56,22 @@ namespace CustomClassList
             {
                 items[index] = value;
             }
+        }
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
+        }
+        
+        //Member Add Methods (CAN DO)
+        public void Add(T input)
+        {
+            CapacityCheck();
+            IncreaseCount();
+            ItemAddedToNextIndexSpot(input);
+
         }
         public void CapacityCheck()
         {
@@ -118,7 +128,6 @@ namespace CustomClassList
             count += 1;
         }
 
-
         //Member Remove Methods (CAN DO)
         public void Remove(T removeinput)
         {
@@ -132,7 +141,7 @@ namespace CustomClassList
                 if ((items[i].Equals(removeinput)) && removeone < 1)
                 {
                     // Only remove first occurence
-                    removeone += 1;                    
+                    removeone += 1;
                     MakeTempArray();
                     CombineAndShiftArrayValues(i);
                     DecreaseCount();
@@ -173,6 +182,9 @@ namespace CustomClassList
         }
 
         // Member ToString Methods (CAN DO)
+        public void TooString()
+        {
 
+        }
     }
 }
