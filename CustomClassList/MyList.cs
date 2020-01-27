@@ -132,8 +132,8 @@ namespace CustomClassList
         public bool Remove(T removeinput)
         {
             bool removed = false;
-            CheckIfValueInArray(removeinput, removed);
-            RemoveItem(removeinput);
+            removed = CheckIfValueInArray(removeinput, removed);
+            CompareRemoved(removed, removeinput);
             return removed;
         }
         public bool CheckIfValueInArray(T removeinput, bool removed)
@@ -146,6 +146,13 @@ namespace CustomClassList
                 }
             }
             return removed;
+        }
+        public void CompareRemoved(bool removed, T removeinput)
+        {
+            if (removed == true)
+            {
+                RemoveItem(removeinput);
+            }
         }
         public void RemoveItem(T removeinput)
         {
@@ -191,9 +198,14 @@ namespace CustomClassList
         }
 
         // Member ToString Methods (CAN DO)
-        public void TooString()
+        public string TooString()
         {
-
+            string stringList = "";
+            foreach (T value in items)
+            {
+                value.ToString();
+            }
+            return stringList;
         }
     }
 }
