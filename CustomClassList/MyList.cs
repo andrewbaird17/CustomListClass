@@ -49,22 +49,19 @@ namespace CustomClassList
         {
             get
             {
-                if (index < count)
+                if ((index < 0) || (index > count))
                 {
-                    return items[index];
+                    throw new ArgumentOutOfRangeException("Not valid argument");
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException();
+                    return items[index];
                 }
-
             }
             set
             {
                 items[index] = value;
             }
-            //Throw the IndexOutofRange Error
-
         }
         public void CapacityCheck()
         {
@@ -125,11 +122,7 @@ namespace CustomClassList
         //Member Remove Methods (CAN DO)
         public void Remove(T removeinput)
         {
-            // Actually Remove an item from array
-            // Don't decrease count if value not in array
-
             CheckIfValueInArray(removeinput);
-
         }
         public void CheckIfValueInArray(T removeinput)
         {
@@ -138,8 +131,8 @@ namespace CustomClassList
             {
                 if ((items[i].Equals(removeinput)) && removeone < 1)
                 {
-                    removeone += 1;
                     // Only remove first occurence
+                    removeone += 1;                    
                     MakeTempArray();
                     CombineAndShiftArrayValues(i);
                     DecreaseCount();
@@ -147,10 +140,6 @@ namespace CustomClassList
                 else if (removeone == 1)
                 {
                     break;
-                }
-                else
-                {
-                    //Console.WriteLine("No such item exists");
                 }
             }
         }
@@ -182,5 +171,8 @@ namespace CustomClassList
         {
             count -= 1;
         }
+
+        // Member ToString Methods (CAN DO)
+
     }
 }
