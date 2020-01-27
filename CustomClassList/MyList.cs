@@ -56,14 +56,6 @@ namespace CustomClassList
                 items[index] = value;
             }
             //Throw the IndexOutofRange Error
-        }
-
-        public void ValueNotInArrayCountStaysSame()
-        {
-
-        }
-        public void TakeItemOutAtCertainIndex()
-        {
 
         }
         public void CapacityCheck()
@@ -125,12 +117,30 @@ namespace CustomClassList
             count -= 1;
         }
 
-        ////Member Remove Methods (CAN DO)
-        /// public void Remove(T input)
-        //{
-             //Actually Remove an item from array
-             //Don't decrease count if value not in array
+        //Member Remove Methods (CAN DO)
+        public void Remove(T input)
+        {
+            // Actually Remove an item from array
+            // Don't decrease count if value not in array
+
+            try
+            {
+
+            }
+            catch (IndexOutOfRangeException)
+            { 
+                Console.WriteLine($"Error: Index out of Range, Try again with a value between 0 and {this.Count - 1}");
+            }
+
+
+        }
+        public void ValueNotInArrayCountStaysSame()
+        {
             
-        //}
-}
+        }
+        public void TakeItemOutAtCertainIndex()
+        {
+
+        }
+    }
 }
