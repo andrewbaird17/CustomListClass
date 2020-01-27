@@ -17,7 +17,7 @@ namespace CustomClassList
         {
             get
             {
-                 return count;
+                return count;
             }
         }
         private int capacity;
@@ -112,35 +112,69 @@ namespace CustomClassList
         {
             count += 1;
         }
-        public void DecreaseCount()
-        {
-            count -= 1;
-        }
+
 
         //Member Remove Methods (CAN DO)
-        public void Remove(T input)
+        public void Remove(T removeinput)
         {
             // Actually Remove an item from array
             // Don't decrease count if value not in array
+            CheckIfValueInArray(removeinput);
 
-            try
+            //try
+            //{
+            //    
+            //}
+            //catch (IndexOutOfRangeException)
+            //{
+            //    Console.WriteLine($"Error: Index out of Range");
+            //}
+        }
+        public void CheckIfValueInArray(T removeinput)
+        {
+            int removeone = 0;
+            for (int i = 0; i < count; i++)
             {
-
+                if ((items[i].Equals(removeinput)) && removeone < 1)
+                {
+                    removeone = 1;
+                    // Only remove first occurence
+                    MakeTempArray();
+                    CombineAndShiftArrayValues(i);
+                    DecreaseCount();
+                }
+                else
+                {
+                    //Console.WriteLine("No such item exists");
+                }
             }
-            catch (IndexOutOfRangeException)
-            { 
-                Console.WriteLine($"Error: Index out of Range, Try again with a value between 0 and {this.Count - 1}");
+        }
+        public void CombineAndShiftArrayValues(int i)
+        {
+            int k = 0;
+            for (int j = 0; j < count; j++)
+            {
+                if (i == j)
+                {
+                    k++;
+                    j--;
+                    i = -1;
+                }
+                else if (k == count)
+                {
+                    break;
+                }
+                else
+                {
+                    tempitems[j] = items[k];
+                    k++;
+                }
             }
-
-
+            items = tempitems;
         }
-        public void ValueNotInArrayCountStaysSame()
+        public void DecreaseCount()
         {
-            
-        }
-        public void TakeItemOutAtCertainIndex()
-        {
-
+            count -= 1;
         }
     }
 }
