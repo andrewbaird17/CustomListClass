@@ -64,7 +64,7 @@ namespace CustomClassList
                 yield return items[i];
             }
         }
-        
+
         //Member Add Methods (CAN DO)
         public void Add(T input)
         {
@@ -129,26 +129,35 @@ namespace CustomClassList
         }
 
         //Member Remove Methods (CAN DO)
-        public void Remove(T removeinput)
+        public bool Remove(T removeinput)
         {
-            CheckIfValueInArray(removeinput);
+            bool removed = false;
+            CheckIfValueInArray(removeinput, removed);
+            RemoveItem(removeinput);
+            return removed;
         }
-        public void CheckIfValueInArray(T removeinput)
+        public bool CheckIfValueInArray(T removeinput, bool removed)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (items[i].Equals(removeinput))
+                {
+                    removed = true;
+                }
+            }
+            return removed;
+        }
+        public void RemoveItem(T removeinput)
         {
             int removeone = 0;
             for (int i = 0; i < count; i++)
             {
                 if ((items[i].Equals(removeinput)) && removeone < 1)
                 {
-                    // Only remove first occurence
                     removeone += 1;
                     MakeTempArray();
                     CombineAndShiftArrayValues(i);
                     DecreaseCount();
-                }
-                else if (removeone == 1)
-                {
-                    break;
                 }
             }
         }
