@@ -10,15 +10,17 @@ namespace CustomClassList
     {
         static void Main(string[] args)
         {
-            //string word;
-            //MyList<int> myList = new MyList<int>() { 1,2,3,4,5};
-            //foreach (int item in myList)
-            //{
-            //   word = item.ToString();
-            //   Console.WriteLine(word);
-            //}
+            MyList<int> one = new MyList<int>() { 1, 3, 5, 7 };
+            MyList<int> two = new MyList<int>() { 2, 4, 6, 8 };
             
-            //Console.ReadLine();
+
+            //Act
+            MyList<int> result = one + two;
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
         }
 
     }

@@ -21,12 +21,12 @@ namespace CustomClassList
                 return count;
             }
         }
-        private int capacity;
+        private int tempcapacity;
         public int Capacity
         {
             get
             {
-                return capacity;
+                return tempcapacity;
             }
         }
         public int nextIndex;
@@ -34,7 +34,7 @@ namespace CustomClassList
         //Constructor
         public MyList()
         {
-            items = new T[capacity];
+            items = new T[tempcapacity];
             count = 0;
         }
 
@@ -75,7 +75,7 @@ namespace CustomClassList
         }
         public void CapacityCheck()
         {
-            if (count == capacity)
+            if (count == tempcapacity)
             {
                 IncreaseCapacity();
                 MakeTempArray();
@@ -84,8 +84,8 @@ namespace CustomClassList
         }
         public void MakeTempArray()
         {
-            tempitems = new T[capacity];
-            for (int i = 0; i < capacity; i++)
+            tempitems = new T[tempcapacity];
+            for (int i = 0; i < tempcapacity; i++)
             {
                 tempitems[i] = item;
             }
@@ -100,16 +100,16 @@ namespace CustomClassList
         }
         public void IncreaseCapacity()
         {
-            if (capacity == 0)
+            if (tempcapacity == 0)
             {
                 MakeInitialArray();
                 int newCapacity = 4;
-                capacity = newCapacity;
+                tempcapacity = newCapacity;
             }
             else
             {
-                int newCapacity = capacity * 2;
-                capacity = newCapacity;
+                int newCapacity = tempcapacity * 2;
+                tempcapacity = newCapacity;
             }
         }
         public void ItemAddedToNextIndexSpot(T input)
@@ -119,8 +119,8 @@ namespace CustomClassList
         }
         public void MakeInitialArray()
         {
-            capacity = 1;
-            items = new T[capacity];
+            tempcapacity = 1;
+            items = new T[tempcapacity];
             items[nextIndex] = item;
         }
         public void IncreaseCount()
@@ -209,7 +209,27 @@ namespace CustomClassList
             return stringList;
         }
 
-        // Member Overload "+" and "-" Methods
+        // Member Overload "+" Method
+        public static MyList<T> operator + (MyList<T> one, MyList<T> two)
+        {
+            MyList<T> comboList = new MyList<T>();
+            foreach (T unit in one)
+            {
+                comboList.Add(unit);
+            }
+            foreach (T unit in two)
+            {
+                comboList.Add(unit);
+            }
+            // return combined list
+            return comboList;
+        }
 
+        // Member Overload "-" Method
+        public static MyList<T> operator -(MyList<T> one, MyList<T> two)
+        {
+            MyList<T> comboList = new MyList<T>();
+            return comboList;
+        }
     }
 }
