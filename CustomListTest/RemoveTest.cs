@@ -160,16 +160,101 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        public void Remove_RemoveMultipleItems_CountDecreasesByTwoTo3()
+        {
+            //Arrange
+            MyList<string> myList = new MyList<string>();
+            string value = "word";
+            string value0 = "brick";
+            string value1 = "rocks";
+            string value2 = "snow";
+            string value3 = "sky";
+            int expected = 3;
+            int actual;
+
+            //Act
+            myList.Add(value0);
+            myList.Add(value);
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            myList.Remove(value);
+            myList.Remove(value3);
+            actual = myList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void Remove_RemoveMultipleItems_LastItemShiftstoIndexOf2()
+        {
+            //Arrange
+            MyList<string> myList = new MyList<string>();
+            string value = "word";
+            string value0 = "brick";
+            string value1 = "rocks";
+            string value2 = "snow";
+            string value3 = "sky";
+            string expected = "sky";
+            string actual;
+
+            //Act
+            myList.Add(value0);
+            myList.Add(value);
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            myList.Remove(value);
+            myList.Remove(value2);
+            actual = myList[2];
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void Remove_RemoveItemThenAddThreeItems_IndexOfFourIsValue5()
+        {
+            //Arrange
+            MyList<string> myList = new MyList<string>();
+            string value1 = "word";
+            string value0 = "brick";
+            string value2 = "rocks";
+            string value3 = "snow";
+            string value4 = "sky";
+            string value5 = "almonds";
+            string expected = "almonds";
+            string actual;
+
+            //Act
+            myList.Add(value0);
+            myList.Add(value1);
+            myList.Remove(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            myList.Add(value4);
+            myList.Add(value5);
+
+            actual = myList[4];
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Remove_CheckIfListIsOutOfIndex_DisplayOutOfIndex()
         {
             // Arrange
             MyList<int> myList = new MyList<int>();
-            int initial = 2;
+            int actual;
 
             //Act
-            myList.Remove(initial);
-
+            actual = myList[2];
         }
     }
 }

@@ -49,7 +49,15 @@ namespace CustomClassList
         {
             get
             {
-                return items[index];
+                if (index < count)
+                {
+                    return items[index];
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+
             }
             set
             {
@@ -119,16 +127,9 @@ namespace CustomClassList
         {
             // Actually Remove an item from array
             // Don't decrease count if value not in array
+
             CheckIfValueInArray(removeinput);
 
-            //try
-            //{
-            //    
-            //}
-            //catch (IndexOutOfRangeException)
-            //{
-            //    Console.WriteLine($"Error: Index out of Range");
-            //}
         }
         public void CheckIfValueInArray(T removeinput)
         {
@@ -137,11 +138,15 @@ namespace CustomClassList
             {
                 if ((items[i].Equals(removeinput)) && removeone < 1)
                 {
-                    removeone = 1;
+                    removeone += 1;
                     // Only remove first occurence
                     MakeTempArray();
                     CombineAndShiftArrayValues(i);
                     DecreaseCount();
+                }
+                else if (removeone == 1)
+                {
+                    break;
                 }
                 else
                 {
@@ -162,6 +167,7 @@ namespace CustomClassList
                 }
                 else if (k == count)
                 {
+                    nextIndex -= 1;
                     break;
                 }
                 else
