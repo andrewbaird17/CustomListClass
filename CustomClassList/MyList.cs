@@ -198,13 +198,14 @@ namespace CustomClassList
         }
 
         // Member ToString Methods (CAN DO)
-        public string TooString()
+        public override string ToString()
         {
-            string stringList = "";
-            foreach (T value in items)
+            StringBuilder stringbuilder = new StringBuilder();
+            for (int i = 0; i < count; i++)
             {
-                value.ToString();
+                stringbuilder.Append(items[i]);
             }
+            string stringList = stringbuilder.ToString();
             return stringList;
         }
     }
