@@ -41,12 +41,12 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Zip_CombineListsOfDifferentSizeSmallerFirst_ResultBe123456()
+        public void Zip_CombineListsOfDifferentSizeSmallerFirst_ResultBetestingisfunlets()
         {
             // Arrange
             MyList<string> one = new MyList<string>() { "testing", "fun" };
             MyList<string> two = new MyList<string>() { "is", "lets", "do", "more" };
-            MyList<string> expectedlist = new MyList<string> { "testing", "is", "fun", "lets", "do", "more"};
+            MyList<string> expectedlist = new MyList<string> { "testing", "is", "fun", "lets"};
             string expected = expectedlist.ToString();
 
             //Act
@@ -57,12 +57,12 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Zip_CombineListsOfDifferentSizeBiggerFirst_ResultBe123456()
+        public void Zip_CombineListsOfDifferentSizeBiggerFirst_ResultBeistestingletsfun()
         {
             // Arrange
             MyList<string> one = new MyList<string>() { "is", "lets", "do", "more" };
             MyList<string> two = new MyList<string>() { "testing", "fun" };
-            MyList<string> expectedlist = new MyList<string> { "is", "testing", "lets", "fun", "do", "more" };
+            MyList<string> expectedlist = new MyList<string> { "is", "testing", "lets", "fun"};
             string expected = expectedlist.ToString();
 
             //Act

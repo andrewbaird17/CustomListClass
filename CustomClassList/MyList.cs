@@ -210,7 +210,7 @@ namespace CustomClassList
         }
 
         // Member Overload "+" Method
-        public static MyList<T> operator + (MyList<T> one, MyList<T> two)
+        public static MyList<T> operator +(MyList<T> one, MyList<T> two)
         {
             MyList<T> comboList = new MyList<T>();
             foreach (T unit in one)
@@ -229,7 +229,7 @@ namespace CustomClassList
         public static MyList<T> operator -(MyList<T> one, MyList<T> two)
         {
             MyList<T> comboList = new MyList<T>();
-            
+
             foreach (T unit in one)
             {
                 comboList.Add(unit);
@@ -251,6 +251,22 @@ namespace CustomClassList
         }
 
         //Member Zip Method
-
+        public MyList<T> Zip(MyList<T> list)
+        {
+            MyList<T> zipList = new MyList<T>();
+            for (int i = 0; i < count; i++)
+            {
+                if (i < list.count)
+                {
+                    zipList.Add(items[i]);
+                    zipList.Add(list[i]);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return zipList;
+        }
     }
 }
