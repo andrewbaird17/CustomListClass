@@ -29,14 +29,16 @@ namespace CustomListTest
             //Arrange
             MyList<int> one = new MyList<int>() { 1, 3, 5, 7 };
             MyList<int> two = new MyList<int>() { 2, 4, 6, 8 };
-            MyList<int> expected = new MyList<int>() { 1, 3, 5, 7, 2, 4, 6, 8};
+            MyList<int> expectedlist = new MyList<int>() { 1, 3, 5, 7, 2, 4, 6, 8};
+            string expected = expectedlist.ToString();
             
 
             //Act
-            MyList<int> result = one + two;
+            MyList<int> resultlist = one + two;
+            string actual = resultlist.ToString();
 
             //Assert
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -61,14 +63,15 @@ namespace CustomListTest
             //Arrange
             MyList<string> one = new MyList<string>() { "1", "3", "5", "7" };
             MyList<string> two = new MyList<string>() { "2", "4" };
-            MyList<string> expected = new MyList<string>() { "1", "3", "5", "7", "2", "4" };
+            MyList<string> expectedlist = new MyList<string>() { "1", "3", "5", "7", "2", "4" };
+            string expected = expectedlist.ToString();
 
             //Act
             MyList<string> result = one + two;
-            
+            string actual = result.ToString();
 
             //Assert
-            Assert.AreEqual(expected,result);
+            Assert.AreEqual(expected,actual);
         }
     }
 }
