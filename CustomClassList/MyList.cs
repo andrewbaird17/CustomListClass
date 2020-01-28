@@ -229,6 +229,24 @@ namespace CustomClassList
         public static MyList<T> operator -(MyList<T> one, MyList<T> two)
         {
             MyList<T> comboList = new MyList<T>();
+            
+            foreach (T unit in one)
+            {
+                comboList.Add(unit);
+            }
+            foreach (T unit in two)
+            {
+                bool removed = false;
+                bool inArray = comboList.CheckIfValueInArray(unit, removed);
+                if (inArray == true)
+                {
+                    comboList.Remove(unit);
+                }
+                else
+                {
+                    comboList.Add(unit);
+                }
+            }
             return comboList;
         }
     }

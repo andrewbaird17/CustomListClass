@@ -30,14 +30,15 @@ namespace CustomListTest
             //Arrange
             MyList<int> one = new MyList<int>() { 1, 3, 5 };
             MyList<int> two = new MyList<int>() { 2, 1, 6 };
-            MyList<int> expected = new MyList<int>() { 3, 5, 2, 6 };
+            MyList<int> expectedlist = new MyList<int>() { 3, 5, 2, 6 };
+            string expected = expectedlist.ToString();
 
             //Act
             MyList<int> result = one - two;
-
+            string actual = result.ToString();
 
             //Assert
-            Assert.AreSame(expected, result);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void OverloadMinus_RemoveExactSameList_ResultingListShouldBeNullAtIndex0()
@@ -59,13 +60,15 @@ namespace CustomListTest
             //Arrange
             MyList<int> A = new MyList<int>() { 1, 3, 3 };
             MyList<int> B = new MyList<int>() { 3, 4, 5 };
-            MyList<int> expected = new MyList<int>() { 1, 3, 4, 5 };
+            MyList<int> expectedlist = new MyList<int>() { 1, 3, 4, 5 };
+            string expected = expectedlist.ToString();
 
             //Act
             MyList<int> result = A - B;
+            string actual = result.ToString();
 
             //Assert
-            Assert.AreSame(expected, result);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void OverloadMinus_RemoveSimilarItemsButSecondListHasValueTwice_ResultingListShouldRemoveOnlyFirstValue()
@@ -73,28 +76,31 @@ namespace CustomListTest
             //Arrange
             MyList<int> B = new MyList<int>() { 3, 4, 5 };
             MyList<int> A = new MyList<int>() { 1, 3, 3 };
-            MyList<int> expected = new MyList<int>() { 4, 5, 1, 3 };
+            MyList<int> expectedlist = new MyList<int>() { 4, 5, 1, 3 };
+            string expected = expectedlist.ToString();
 
             //Act
             MyList<int> result = B - A;
+            string actual = result.ToString();
 
             //Assert
-            Assert.AreSame(expected, result);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void OverloadPlus_AddListsOfDifferentSize_ResultingListShouldBeStrings15924()
+        public void OverloadMinus_MinusListsOfDifferentSize_ResultingListShouldBeStrings15924()
         {
             //Arrange
             MyList<string> one = new MyList<string>() { "1", "3", "5", "7","9" };
             MyList<string> two = new MyList<string>() { "2", "3", "4", "7" };
-            MyList<string> expected = new MyList<string>() { "1", "5", "9", "2", "4" };
+            MyList<string> expectedlist = new MyList<string>() { "1", "5", "9", "2", "4" };
+            string expected = expectedlist.ToString();
 
             //Act
-            MyList<string> result = one + two;
-
+            MyList<string> result = one - two;
+            string actual = result.ToString();
 
             //Assert
-            Assert.AreSame(expected, result);
+            Assert.AreEqual(expected, actual);
         }
     }
 }
