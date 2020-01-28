@@ -266,11 +266,20 @@ namespace CustomClassList
         }
 
         //Member Sort Method Using Bubble Sort
-        public MyList<T> Sort()
+        public void Sort() 
         {
-            MyList<T> sortedList = new MyList<T>();
-
-            return sortedList;
+            for (int i = 0; i <= count; i++)
+            {
+                for (int j = 0; j < count-1; j++)
+                {
+                    if (items[j].CompareTo(items[j + 1]) > 0)
+                    {
+                        item = items[j];
+                        items[j] = items[j + 1];
+                        items[j + 1] = item;
+                    }
+                }
+            }
         }
 
     }
