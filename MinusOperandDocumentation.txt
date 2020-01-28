@@ -19,4 +19,8 @@ Returns a new list without hte duplicated values. If no duplicated values, retur
 Implements:
 MyList<T>.Remove(T item)
 
-Example
+Example:
+The following example defines two lists and takes them in as parameters to the Minus Operand. The second list contains two duplicate values of those in the first list.
+Only the first instance of each duplicate item is removed and the resulting list is removed without any of the remaining values left in the second list.
+
+
