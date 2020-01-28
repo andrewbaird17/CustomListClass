@@ -24,6 +24,23 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        public void Zip_CombineSimilarSizeLists_CapacityShouldBe8()
+        {
+            // Arrange
+            MyList<int> odd = new MyList<int>() { 1, 3, 5 };
+            MyList<int> even = new MyList<int>() { 2, 4, 6 };
+            MyList<int> expectedlist = new MyList<int> { 1, 2, 3, 4, 5, 6 };
+            int expected = 8;
+            int actual; 
+
+            //Act
+            MyList<int> result = odd.Zip(even);
+            actual = result.Capacity;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
         public void Zip_CombineListsOfDifferentSizeSmallerFirst_ResultBe123456()
         {
             // Arrange
