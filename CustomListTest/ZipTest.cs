@@ -41,7 +41,7 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Zip_CombineListsOfDifferentSizeSmallerFirst_ResultBetestingisfunlets()
+        public void Zip_CombineListsOfDifferentSizeSmallerFirst_ResultBe()
         {
             // Arrange
             MyList<string> one = new MyList<string>() { "testing", "fun" };

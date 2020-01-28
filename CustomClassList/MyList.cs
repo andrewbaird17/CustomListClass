@@ -12,7 +12,7 @@ namespace CustomClassList
         //Member Variables (HAS A)
         T[] items;
         T[] tempitems;
-        public T item;
+        T item;
         private int count;
         public int Count
         {
@@ -264,5 +264,38 @@ namespace CustomClassList
             }
             return zipList;
         }
-    }
+
+        // Member Sort Method Using Quick Sort
+        //public MyList<T> Sort()
+        //{
+        //    MyList<T> sortedList = new MyList<T>();
+
+        //    return sortedList;
+        //}
+
+        //// Quick Sort Algorithm(Take in list, left (smallest index), right (highest index))
+        //public static void Quick_Sort(MyList<T> list, int low, int high)
+        //{
+        //    if (low < high)
+        //    {
+        //        int pivot = Partition(list, low, high);
+
+        //        if (pivot > 1)
+        //        {
+        //            Quick_Sort(list, low, pivot - 1);
+        //        }
+        //        if (pivot + 1 < high)
+        //        {
+        //            Quick_Sort(list, pivot + 1, high);
+        //        }
+        //    }
+        //}
+        //public static int Partition(MyList<T> list, int low, int high)
+        //{
+        //    int pivot = list[low];
+
+        //    return pivot;
+        //}
+
+}
 }
