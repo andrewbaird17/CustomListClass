@@ -1,0 +1,22 @@
+Operator Overloading '-' Operand
+
+Takes in two lists of type MyList<T>, removes the the first occurence of a value between the two lists, and 
+returns the new list of type MyList<T> without the duplicated values in the first list. 
+
+Syntax:
+public static MyList<T> operator - (MyList<T> list1, MyList<T> list2)
+
+Parameters:
+list1 MyList<T>
+The first list being checked against.
+list2 MyList<T>
+The second list being used to check for duplicate values to Remove.
+
+Return Type:
+MyList<T>
+Returns a new list without hte duplicated values. If no duplicated values, returns list1.
+
+Implements:
+MyList<T>.Remove(T item)
+
+Example
