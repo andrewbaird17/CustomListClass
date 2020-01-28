@@ -266,12 +266,15 @@ namespace CustomClassList
         }
 
         //Member Sort Method Using Bubble Sort
-        public void Sort() 
+        public void Sort()
         {
+            // passes
             for (int i = 0; i <= count; i++)
             {
+                // moving through array
                 for (int j = 0; j < count-1; j++)
                 {
+                    // Compare item to the one next to it; if greater than zero item follows the one next to it
                     if (items[j].CompareTo(items[j + 1]) > 0)
                     {
                         item = items[j];
