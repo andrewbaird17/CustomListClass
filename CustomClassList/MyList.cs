@@ -250,7 +250,7 @@ namespace CustomClassList
         public MyList<T> Zip(MyList<T> list1, MyList<T> list2)
         {
             MyList<T> zipList = new MyList<T>();
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < list1.count; i++)
             {
                 if (i < list2.count)
                 {
