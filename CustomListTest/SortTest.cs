@@ -23,15 +23,15 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Sort_TakeInAMixedListOfStrings_ReturnedListSortedInAlphabeticalOrder()
+        public void Sort_TakeInAMixedListOfTwoInts_ReturnedListSortedfromSmallToBig()
         {
             //Arrange
-            MyList<string> mixedList = new MyList<string>() { "a", "lazy", "fox", "jumps", "over", "the", "log"};
-            MyList<string> expectedList = new MyList<string>() { "a", "fox","jump", "lazy", "log", "over", "the"};
+            MyList<int> mixedList = new MyList<int>() { 2, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 2 };
+            MyList<int> expectedList = new MyList<int>() { 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2 };
             string expected = expectedList.ToString();
 
             //Act
-            MyList<string> result = mixedList.Sort();
+            MyList<int> result = mixedList.Sort();
             string actual = result.ToString();
 
             //Assert

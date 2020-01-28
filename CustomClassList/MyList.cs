@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomClassList
 {
-    public class MyList<T> : IEnumerable
+    public class MyList<T> : IEnumerable where T : IComparable
     {
         //Member Variables (HAS A)
         T[] items;
@@ -247,15 +247,15 @@ namespace CustomClassList
         }
 
         //Member Zip Method
-        public MyList<T> Zip(MyList<T> list)
+        public MyList<T> Zip(MyList<T> list1, MyList<T> list2)
         {
             MyList<T> zipList = new MyList<T>();
             for (int i = 0; i < count; i++)
             {
-                if (i < list.count)
+                if (i < list2.count)
                 {
-                    zipList.Add(items[i]);
-                    zipList.Add(list[i]);
+                    zipList.Add(list1[i]);
+                    zipList.Add(list2[i]);
                 }
                 else
                 {
@@ -265,37 +265,13 @@ namespace CustomClassList
             return zipList;
         }
 
-        // Member Sort Method Using Quick Sort
-        //public MyList<T> Sort()
-        //{
-        //    MyList<T> sortedList = new MyList<T>();
+        //Member Sort Method Using Bubble Sort
+        public MyList<T> Sort()
+        {
+            MyList<T> sortedList = new MyList<T>();
 
-        //    return sortedList;
-        //}
+            return sortedList;
+        }
 
-        //// Quick Sort Algorithm(Take in list, left (smallest index), right (highest index))
-        //public static void Quick_Sort(MyList<T> list, int low, int high)
-        //{
-        //    if (low < high)
-        //    {
-        //        int pivot = Partition(list, low, high);
-
-        //        if (pivot > 1)
-        //        {
-        //            Quick_Sort(list, low, pivot - 1);
-        //        }
-        //        if (pivot + 1 < high)
-        //        {
-        //            Quick_Sort(list, pivot + 1, high);
-        //        }
-        //    }
-        //}
-        //public static int Partition(MyList<T> list, int low, int high)
-        //{
-        //    int pivot = list[low];
-
-        //    return pivot;
-        //}
-
-}
+    }
 }
