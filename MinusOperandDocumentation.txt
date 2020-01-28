@@ -20,7 +20,23 @@ Implements:
 MyList<T>.Remove(T item)
 
 Example:
-The following example defines two lists and takes them in as parameters to the Minus Operand. The second list contains two duplicate values of those in the first list.
+The following example defines two lists, these lists use properties and methods of the MyList<T> generic class to add, insert, and index the list. These lists are then taken in as parameters to the Minus Operand. The second list contains two duplicate values of those in the first list.
 Only the first instance of each duplicate item is removed and the resulting list is removed without any of the remaining values left in the second list.
+
+//C#
+//Arrange
+MyList<string> one = new MyList<string>() { "1", "3", "5", "7","9" };
+MyList<string> two = new MyList<string>() { "2", "3", "4", "7" };
+
+// What Is Expected Out 
+MyList<string> expectedlist = new MyList<string>() { "1", "5", "9" };
+string expected = expectedlist.ToString();
+
+// Using the minus Operand
+MyList<string> result = one - two;
+string actual = result.ToString();
+
+//Checking If What Was Expected Is the Same as What Was Returned
+Assert.AreEqual(expected, actual);
 
 

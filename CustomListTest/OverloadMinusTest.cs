@@ -87,7 +87,7 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void OverloadMinus_MinusListsOfDifferentSize_ResultingListShouldBeStrings15924()
+        public void OverloadMinus_MinusListsOfDifferentSize_ResultingListShouldBeStrings159()
         {
             //Arrange
             MyList<string> one = new MyList<string>() { "1", "3", "5", "7","9" };
