@@ -8,12 +8,12 @@ namespace CustomListTest
     public class OverloadMinusTest
     {
         [TestMethod]
-        public void OverloadMinus_RemoveSimilarItemsInBothLists_ResultingListShouldHaveCountOf4()
+        public void OverloadMinus_RemoveSimilarItemsInBothLists_ResultingListShouldHaveCountOf2()
         {
             //Arrange
             MyList<int> one = new MyList<int>() { 1, 3, 5 };
             MyList<int> two = new MyList<int>() { 2, 1, 6 };
-            int expected = 4;
+            int expected = 2;
             int actual;
 
             //Act
@@ -25,12 +25,12 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void OverloadMinus_RemoveSimilarItemsInBothLists_ResultingListShouldBe3526()
+        public void OverloadMinus_RemoveSimilarItemsInBothLists_ResultingListShouldBe35()
         {
             //Arrange
             MyList<int> one = new MyList<int>() { 1, 3, 5 };
             MyList<int> two = new MyList<int>() { 2, 1, 6 };
-            MyList<int> expectedlist = new MyList<int>() { 3, 5, 2, 6 };
+            MyList<int> expectedlist = new MyList<int>() { 3, 5 };
             string expected = expectedlist.ToString();
 
             //Act
@@ -60,7 +60,7 @@ namespace CustomListTest
             //Arrange
             MyList<int> A = new MyList<int>() { 1, 3, 3 };
             MyList<int> B = new MyList<int>() { 3, 4, 5 };
-            MyList<int> expectedlist = new MyList<int>() { 1, 3, 4, 5 };
+            MyList<int> expectedlist = new MyList<int>() { 1, 3 };
             string expected = expectedlist.ToString();
 
             //Act
@@ -76,7 +76,7 @@ namespace CustomListTest
             //Arrange
             MyList<int> B = new MyList<int>() { 3, 4, 5 };
             MyList<int> A = new MyList<int>() { 1, 3, 3 };
-            MyList<int> expectedlist = new MyList<int>() { 4, 5, 1, 3 };
+            MyList<int> expectedlist = new MyList<int>() { 4, 5};
             string expected = expectedlist.ToString();
 
             //Act
@@ -92,7 +92,7 @@ namespace CustomListTest
             //Arrange
             MyList<string> one = new MyList<string>() { "1", "3", "5", "7","9" };
             MyList<string> two = new MyList<string>() { "2", "3", "4", "7" };
-            MyList<string> expectedlist = new MyList<string>() { "1", "5", "9", "2", "4" };
+            MyList<string> expectedlist = new MyList<string>() { "1", "5", "9" };
             string expected = expectedlist.ToString();
 
             //Act

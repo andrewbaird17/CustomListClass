@@ -242,10 +242,6 @@ namespace CustomClassList
                 {
                     comboList.Remove(unit);
                 }
-                else
-                {
-                    comboList.Add(unit);
-                }
             }
             return comboList;
         }
