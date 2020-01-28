@@ -247,7 +247,7 @@ namespace CustomClassList
         }
 
         //Member Zip Method
-        public MyList<T> Zip(MyList<T> list1, MyList<T> list2)
+        public static MyList<T> Zip(MyList<T> list1, MyList<T> list2)
         {
             MyList<T> zipList = new MyList<T>();
             for (int i = 0; i < list1.count; i++)

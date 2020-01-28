@@ -17,7 +17,7 @@ namespace CustomListTest
             string expected = expectedlist.ToString();
 
             //Act
-            MyList<int> result = odd.Zip(odd, even);
+            MyList<int> result = MyList<int>.Zip(odd, even);
             string actual = result.ToString();
 
             //Assert
@@ -34,7 +34,7 @@ namespace CustomListTest
             int actual; 
 
             //Act
-            MyList<int> result = odd.Zip(odd, even);
+            MyList<int> result = MyList<int>.Zip(odd, even);
             actual = result.Capacity;
 
             //Assert
@@ -50,7 +50,7 @@ namespace CustomListTest
             string expected = expectedlist.ToString();
 
             //Act
-            MyList<string> result = one.Zip(one, two);
+            MyList<string> result = MyList<string>.Zip(one, two);
             string actual = result.ToString();
 
             //Assert
@@ -66,7 +66,7 @@ namespace CustomListTest
             string expected = expectedlist.ToString();
 
             //Act
-            MyList<string> result = one.Zip(one, two);
+            MyList<string> result = MyList<string>.Zip(one, two);
             string actual = result.ToString();
 
             //Assert
